@@ -19,4 +19,4 @@ services:
       - "8500:8500"
       - "8600:8600"
       - "8600:53/udp"
-    command: consul  agent -server -node master -advertise='{{GetInterfaceIP "ens33"}}' -join server  -bootstrap-expect 1 -ui -client 0.0.0.0 -data-dir=/tmp/data
+    command: consul  agent -server -node master -advertise='{{GetInterfaceIP "ens33"}}' -join '{{GetInterfaceIP "ens33"}}'  -bootstrap-expect 1 -ui -client 0.0.0.0 -data-dir=/tmp/data
